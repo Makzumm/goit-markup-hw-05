@@ -192,15 +192,16 @@ header{
 
 .hero-section{
     max-width: 1600px;
-    min-height: 600px;
-    font-family: "Roboto";
+    height: 600px;
     padding: 200px 0;
+    margin: 0 auto;
     background-image:
     linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
     url(../images/hero-bgimg.jpg);
     background-color: #2F303A;
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
 }
 
 .hero-title{
@@ -316,6 +317,81 @@ header{
     padding: 0 0 94px 0;
 }
 
+.activity-list {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.activity-list-thumb-container{
+    position: relative;
+}
+
+.activity-list-thumb-txt{
+    position: absolute;
+    top: 100%;
+    right: 0;
+    transform: translate(0%, -100%);
+}
+
+.activity-list-thumb-container p{
+    width: 100%;
+    height: 70px;
+    padding: 27px 0 27px 0;
+    margin: 0;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: 0.03em;
+    color: var(--white-color);
+    background: rgba(47, 48, 58, 0.8);
+}
+
+.activity-list-thumb-txt-two{
+    position: absolute;
+    top: 100%;
+    right: 50%;
+    transform: translate(50%, -100%);
+    width: 370px;
+    height: 70px;
+    background: rgba(47, 48, 58, 0.8);
+    padding: 27px 82px 27px 82px;
+}
+
+.activity-list-thumb-txt-two h3 {
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: 0.03em;
+    color: var(--white-color);
+}
+
+.activity-list-thumb-txt-three{
+    position: absolute;
+    top: 100%;
+    right: 50%;
+    transform: translate(50%, -100%);
+    width: 370px;
+    height: 70px;
+    background: rgba(47, 48, 58, 0.8);
+    padding: 27px 82px 27px 82px;
+}
+
+.activity-list-thumb-txt-three h3 {
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: 0.03em;
+    color: var(--white-color);
+}
+
 .activity-title{
     text-align: center;
     margin-bottom: 50px;
@@ -325,11 +401,6 @@ header{
     letter-spacing: 0.03em;
 }
 
-.activity-list{
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-}
 
 
 /* TEAM SECTION */
