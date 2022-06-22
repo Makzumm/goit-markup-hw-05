@@ -56,6 +56,8 @@ address {
     --light-grey-color: #f5f4fA;
     --container-width: 1200px;
     --svg-color: #afb1b8;
+    --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    --overlay-potfolio-card-bg-color: rgba(33, 150, 243, 0.9);
 }
 
 
@@ -66,7 +68,7 @@ body{
 
 /* HEADER */
 header{
-    padding: 25px 0;
+    padding: 24px 0;
     border-bottom: 1px solid #ECECEC;
 }
 
@@ -116,8 +118,8 @@ header{
 .current::after{
     content: '';
     position: absolute;
-    top: 275%;
-    right: 0%;
+    bottom: -204%;
+    right: 0;
     border-radius: 2px;
     width: 100%;
     height: 4px;
@@ -129,12 +131,14 @@ header{
 }
 
 .navigation-list a{
+    display: block;
     color: var(--main-txt-color);
+    transition: color 250ms var(--transition-timing-function);
 }
  
 .navigation-list a:hover,
 .navigation-list a:focus{
-    color: var(--light-blue-txt-color)
+    color: var(--light-blue-txt-color);
 }
 
 .navigation-list a:active{
@@ -150,6 +154,18 @@ header{
 .header-contacts a {
     display: flex;
     align-items: center;
+    transition: color 250ms var(--transition-timing-function);
+}
+
+.header-contacts a:hover,
+.header-contacts a:focus {
+    color: var(--light-blue-txt-color);
+    fill: var(--light-blue-txt-color);
+}
+
+.header-contacts a:active {
+    color: var(--dark-blue-txt-color);
+    fill: var(----dark-blue-txt-color);
 }
 
 .navigation-mail{
@@ -170,16 +186,6 @@ header{
     fill: currentColor;
 }
 
-.header-contacts a:hover,
-.header-contacts a:focus {
-    color: var(--light-blue-txt-color);
-    fill: var(--light-blue-txt-color);
-}
-
-.header-contacts a:active{
-    color: var(--dark-blue-txt-color);
-    fill: var(----dark-blue-txt-color);
-}
 
 /* MAIN */
 
@@ -231,7 +237,9 @@ header{
     background: var(--light-blue-txt-color);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     color: var(--white-color);
+    transition: background-color 250ms var(--transition-timing-function), color 250ms var(--transition-timing-function);
 }
+
 .hero-button:hover,
 .hero-button:focus{
     background-color: var(--medium-light-blue-color);
@@ -320,7 +328,6 @@ header{
 .activity-list {
     display: flex;
     justify-content: space-between;
-    list-style: none;
 }
 
 .activity-list-thumb-container{
@@ -329,16 +336,13 @@ header{
 
 .activity-list-thumb-txt{
     position: absolute;
-    top: 100%;
-    right: 0;
-    transform: translate(0%, -100%);
+    bottom: 0;
+    width: 100%;
+    padding: 27px 0 27px 0;
+    margin: 0;
 }
 
 .activity-list-thumb-container p{
-    width: 100%;
-    height: 70px;
-    padding: 27px 0 27px 0;
-    margin: 0;
     text-transform: uppercase;
     text-align: center;
     font-family: 'Roboto', sans-serif;
@@ -490,6 +494,8 @@ header{
     border-radius: 50%;
     text-decoration: none;
     fill: var(--svg-color);
+    transition-property: fill, background-color;
+    transition: 250ms var(--transition-timing-function);
 }
 
 .insta, .fb, .twit, .link{
@@ -543,11 +549,7 @@ header{
     width: 170px;
     height: 92px;
     fill: var(--svg-color);
-}
-
-.logo{
-    width: 106px;
-    height: 60px;
+    transition: border-color 250ms var(--transition-timing-function), fill 250ms var(--transition-timing-function);
 }
 
 .client a:hover,
@@ -602,6 +604,7 @@ footer{
 .footer-adress a{
     text-decoration: none;
     color: var(--white-color);
+    transition: color 250ms var(--transition-timing-function);
 }
 
 .footer-adress a:hover,
@@ -621,14 +624,12 @@ footer{
     letter-spacing: 0.03em;
 }
 
-.footer-email{
-    display: block;
-    margin-bottom: 9px;
-}
-
 .footer-list a{
+    display: inline-block;
+    margin-bottom: 9px;
     text-decoration: none;
     color: rgba(255, 255, 255, 60%);
+    transition: color 250ms var(--transition-timing-function);
 }
 
 .footer-list a:hover,
@@ -688,6 +689,7 @@ footer{
     text-decoration: none;
     fill: var(--white-color);
     background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 250ms var(--transition-timing-function);
 }
 
 .footer-contacts-list a:hover,
@@ -746,6 +748,8 @@ footer{
     line-height: 1.6;
     color: var(--main-txt-color);
     background: var(--light-grey-color);
+    transition-property: color, box-shadow, background-color;
+    transition: 250ms var(--transition-timing-function);
 }
 
 .filters-list button:hover,
@@ -785,14 +789,19 @@ footer{
     flex-wrap: wrap;
     margin-top: -30px;
     margin-left: -30px;
-    list-style: none;
-    
+}
+
+.template-list img{
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .template-list li {
     flex-basis: calc(100% / 3 - 30px);
     margin-top: 30px;
     margin-left: 30px;
+    transition: box-shadow 250ms var(--transition-timing-function);
 }
 
 .template-list li:hover{
@@ -802,8 +811,40 @@ footer{
 .card-text{
     padding: 20px 24px 4px 24px;
     border: 1px solid #EEEEEE;
+    border-top-width: 0;
     width: 370px;
     background: #FFFFFF;
+}
+
+.template-thumb-container{
+    position: relative;
+    overflow: hidden;
+}
+
+.card-description{
+    position: absolute;
+    bottom: 0;
+    top: 100%;
+    width: 100%;
+    height: auto;
+    padding: 63px 24px 63px 24px;
+    opacity: 1;
+    background-color: var(--overlay-potfolio-card-bg-color);
+    transition: 250ms var(--transition-timing-function);
+}
+
+.card-description-txt{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.55;
+    letter-spacing: 0.03em;
+    color: var(--white-color);
+}
+
+.template-thumb:hover .card-description{
+    top: 0;
+    right: 0;
+    opacity: 1;
 }
 
 .template-list h3{
@@ -815,7 +856,7 @@ footer{
     color: var(--main-txt-color);
 }
 
-.template-list p{
+.card-text p{
     margin-bottom: 20px;
     font-weight: 400;
     font-size: 16px;
