@@ -66,8 +66,7 @@ body{
 }
 
 /* HEADER */
-header{
-    padding: 24px 0;
+.header{
     border-bottom: 1px solid #ECECEC;
 }
 
@@ -110,6 +109,9 @@ header{
     letter-spacing: 0.02em;
 }
 
+.nav-list-link{
+    padding: 30px 0;
+}
 
 .navigation-list .current {
     position: relative;
@@ -119,7 +121,7 @@ header{
 .current:after{
     content: "";
     position: absolute;
-    bottom: -205%;
+    bottom: -1px;
     left: 0;
     height: 4px;
     width: 100%;
@@ -145,15 +147,20 @@ header{
 .header-contacts{
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+}
+
+.navigation-mail,
+.navigation-tel {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: 0.02em;
+    color: var(--grey-color);
 }
 
 .headers-contacts-content{
     margin-right: 50px;
-}
-
-.headers-contacts-content:last-child{
-    margin-right: 0;
 }
 
 .navigation-mail, .navigation-tel{
@@ -173,20 +180,14 @@ header{
     fill: var(----dark-blue-txt-color);
 }
 
-.navigation-mail, .navigation-tel{
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 1.14;
-    letter-spacing: 0.02em;
-    color: var(--grey-color);
-}
-
 .icon{
     margin-right: 10px;
     fill: currentColor;
 }
 
+.headers-contacts-content:last-child {
+    margin-right: 0;
+}
 /* MAIN */
 
 /* HERO SECTION */
@@ -211,6 +212,7 @@ header{
 }
 
 .hero-title{
+    margin-bottom: 30px;
     text-align: center;
     text-transform: uppercase;
     font-weight: 900;
@@ -218,7 +220,6 @@ header{
     line-height: 1.36;
     letter-spacing: 0.06em;
     color: var(--white-color);
-    margin-bottom: 30px;
 }
 
 .hero-button{
